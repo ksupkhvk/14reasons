@@ -1,0 +1,75 @@
+body {
+    font-family: 'Schoolbell';
+    text-align: center;
+    background-color: #E3DED7;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+.cards-container1 {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.card {
+    aspect-ratio: 178 / 300;
+    width: calc(14% - 18px);
+    height: auto;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 30px;
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.15);
+}
+
+.card-front img, .card-back img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(50% - 13px);
+    }
+    h1 {
+        font-size: 25px;
+        margin: 10px 0;
+    }
+}
